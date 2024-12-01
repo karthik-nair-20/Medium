@@ -2,8 +2,11 @@ import { useParams } from "react-router-dom"
 import { signup } from "../types"
 import { ChangeEvent, useState } from "react"
 import axios from "axios"
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 export default function Email() {
+  const navigate = useNavigate();
   const { authType } = useParams()
   const [user, setUser] = useState<signup>({
     username: '',
@@ -29,8 +32,11 @@ export default function Email() {
 
       const response = await axios.post(endPoint, payload);
       localStorage.setItem("token", response.data.token);
+      navigate('/blogs')
+      toast.success("Login successful!"); 
     } catch (e) {
       console.log("Error occurred during", authType === 'inemail' ? "signin" : "signup", e);
+      toast.error("Login failed! Please check your credentials."); 
     }
   }
 

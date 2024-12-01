@@ -29,7 +29,16 @@ model Posts {
   published Boolean?  @default(false)
   author    User     @relation(fields: [authorId], references: [id])
   tag       Tags[]
+  image     Images[]
   createdAt DateTime   @default(now())
+}
+
+model Images {
+  id        Int     @id @default(autoincrement())
+  postId    Int?   //post - id
+  name      String
+  data      Bytes
+  post      Posts?   @relation(fields: [postId], references: [id])
 }
 
 model Tags {
