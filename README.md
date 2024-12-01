@@ -2,6 +2,11 @@
 
 A full-stack Medium-like blog platform built using modern technologies, providing features such as user authentication, post creation, image uploads, and more.
 
+
+
+https://github.com/user-attachments/assets/568d1cab-74cb-4632-91e3-1c6bb5136afb
+
+
 ## 🚀 Features
 
 - **User Authentication**: Sign up and sign in functionality.
